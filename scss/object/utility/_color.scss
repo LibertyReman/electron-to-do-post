@@ -1,0 +1,10 @@
+@use "../../foundation/variable";
+
+.u-bgcolor-red {
+  background: variable.$color-red;
+}
+
+.u-bgcolor-yellow {
+  background: variable.$color-yellow;
+}
+

@@ -1,0 +1,13 @@
+@use "./mixin";
+@use "./variable";
+
+@include mixin.dbg-border-all(blue, 1);
+
+html {
+  user-select: none; // テキスト選択不可
+  background: variable.$color-basebg;
+  color: variable.$color-basefont;
+  font-family: arial, sans-serif;
+  overflow: hidden; // スクロールバー非表示
+}
+

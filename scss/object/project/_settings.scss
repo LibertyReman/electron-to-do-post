@@ -1,0 +1,37 @@
+@use "../../foundation/mixin";
+@use "../../foundation/variable";
+
+.p-settings {
+  @include mixin.dbg-bgcolor(green, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  height: 100px;
+  padding: 15px 15px 0;
+  font-size: 15px;
+
+  &__topmost {
+    @include mixin.dbg-border(red, 1, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    padding-right: 52px;
+    margin-bottom: 13px;
+  }
+
+  &__ctrl-btns {
+    @include mixin.dbg-bgcolor(red, 0);
+    display: flex;
+    justify-content: space-evenly;
+    width: 145px;
+
+    button {
+      width: 58px;
+      padding: 5px 0px;
+    }
+  }
+}
+

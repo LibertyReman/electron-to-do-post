@@ -1,0 +1,18 @@
+@use "../../foundation/mixin";
+@use "../../foundation/variable";
+
+.c-button {
+  padding: 5px 7px;
+  border-radius: 6px;
+  background: #565656;
+  color: #C8C8C8;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.3;
+  }
+}
+
+

@@ -1,0 +1,79 @@
+html {
+  user-select: none;
+  background: #232323;
+  color: #B9B9B9;
+  font-family: arial, sans-serif;
+  overflow: hidden;
+}
+
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-app-region: drag;
+}
+
+.c-button {
+  padding: 5px 7px;
+  border-radius: 6px;
+  background: #565656;
+  color: #C8C8C8;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.c-button:disabled {
+  opacity: 0.3;
+}
+
+.p-post {
+  width: 165px;
+  height: 165px;
+  padding: 10px 5px 5px;
+}
+.p-post__area {
+  width: 100%;
+  height: 100%;
+  color: #B9B9B9;
+  font-size: 12px;
+  resize: none;
+}
+
+.p-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  height: 100px;
+  padding: 15px 15px 0;
+  font-size: 15px;
+}
+.p-settings__topmost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  padding-right: 52px;
+  margin-bottom: 13px;
+}
+.p-settings__ctrl-btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 145px;
+}
+.p-settings__ctrl-btns button {
+  width: 58px;
+  padding: 5px 0px;
+}
+
+.u-bgcolor-red {
+  background: #D03A3A;
+}
+
+.u-bgcolor-yellow {
+  background: #D4A106;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,16 @@
+@use "../foundation/mixin";
+@use "../foundation/variable";
+
+.l-header {
+  @include mixin.dbg-bgcolor(blue, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-app-region: drag;
+}
+
+
+
+
