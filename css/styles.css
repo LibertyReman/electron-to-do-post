@@ -28,6 +28,24 @@ html {
   opacity: 0.3;
 }
 
+.c-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.c-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.c-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+}
+.c-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+}
+.c-scrollbar::-webkit-scrollbar-corner {
+  display: none;
+}
+
 .p-post {
   width: 165px;
   height: 165px;

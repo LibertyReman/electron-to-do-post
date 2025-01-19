@@ -1,0 +1,32 @@
+@use "../../foundation/mixin";
+@use "../../foundation/variable";
+
+.c-scrollbar {
+  // スクロールバー全体
+  &::-webkit-scrollbar {
+    width: 8px; // 縦スクロールバー
+    height: 8px; // 横スクロールバー
+  }
+
+  // スクロールバーのトラック（背景）
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  // スクロールバーのサム（つまみ部分）
+  &::-webkit-scrollbar-thumb {
+    background: transparent; // デフォルトは非表示
+    border-radius: 4px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  // スクロールバーのコーナー
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
+}
+
+
