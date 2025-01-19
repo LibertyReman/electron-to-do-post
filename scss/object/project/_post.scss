@@ -3,8 +3,10 @@
 
 .p-post {
   @include mixin.dbg-bgcolor(red, 1);
-  width: 165px;
-  height: 165px;
+  width: 100%;
+  height: 100vh;
+  min-width: 165px;
+  min-height: 165px;
   padding: 10px 5px 5px;
 
   &__area {

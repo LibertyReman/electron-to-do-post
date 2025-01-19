@@ -16,8 +16,10 @@ function createMainWindow() {
   mainWindow = new BrowserWindow({
     show: false,
     frame: false,
-    width: 165,
-    height: 165,
+    width: appSettings.w,
+    height: appSettings.h,
+    minWidth: 165,
+    minHeight: 165,
     backgroundColor: '#362E43',
     resizable: true,
     useContentSize: true,
@@ -164,13 +166,13 @@ function loadAppSettings() {
 // アプリ設定情報の保存（引数を指定した場合は、その設定を更新）
 function saveAppSettings(settings = {}) {
   const [x, y] = mainWindow.getPosition();
+  const [w, h] = mainWindow.getContentSize();
 
-  if(settings.sound !== undefined) appSettings.sound = settings.sound;
-  if(settings.volume !== undefined) appSettings.volume = settings.volume;
-  if(settings.resetHours !== undefined) appSettings.resetHours = settings.resetHours;
   if(settings.topmost !== undefined) appSettings.topmost = settings.topmost;
   appSettings.x = x;
   appSettings.y = y;
+  appSettings.w = w;
+  appSettings.h = h;
 
   // JSONファイルに書き込む
   fs.writeFileSync(settingsFilePath, JSON.stringify(appSettings, null, 2), 'utf-8');
