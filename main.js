@@ -25,6 +25,7 @@ function createMainWindow() {
     useContentSize: true,
     maximizable: false,
     fullscreenable: false,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
@@ -83,6 +84,14 @@ function createMainWindow() {
       ]
     },
     {
+      label: 'View',
+      submenu: [
+        { role: 'resetZoom' },
+        { role: 'zoomIn' },
+        { role: 'zoomOut' },
+      ]
+    },
+    {
       label: 'Window',
       submenu: [
         { role: 'close' }
@@ -91,11 +100,7 @@ function createMainWindow() {
   ]);
 
   // アプリケーションメニューを表示
-  if(isWin) {
-    Menu.setApplicationMenu(null);
-  } else {
-    Menu.setApplicationMenu(appMenu);
-  }
+  Menu.setApplicationMenu(appMenu);
 }
 
 // アプリ設定画面の作成
@@ -194,7 +199,7 @@ function updateAppSettings(event, settings) {
   // 画面フロート設定の更新
   mainWindow.setAlwaysOnTop(settings.topmost);
 
-  // サウンド設定の更新
+  // アプリ設定を反映
   const encodeData = encodeURIComponent(JSON.stringify(appSettings));
   mainWindow.loadURL(`file://${__dirname}/mainWindow.html?data=${encodeData}`);
 }
