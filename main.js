@@ -115,6 +115,7 @@ function createSettingsWindow() {
     minimizable: false,
     maximizable: false,
     fullscreenable: false,
+    autoHideMenuBar: true,
     modal: true,
     parent: mainWindow,
     webPreferences: {
