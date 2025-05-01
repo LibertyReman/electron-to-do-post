@@ -107,8 +107,8 @@ function createMainWindow() {
 function createSettingsWindow() {
   settingsWindow = new BrowserWindow({
     show: false,
-    width: 170,
-    height: 100,
+    width: 230,
+    height: 120,
     backgroundColor: '#232323',
     resizable: false,
     useContentSize: true,
@@ -175,6 +175,7 @@ function saveAppSettings(settings = {}) {
   const [w, h] = mainWindow.getContentSize();
 
   if(settings.topmost !== undefined) appSettings.topmost = settings.topmost;
+  if(settings.filePath !== undefined) appSettings.filePath = settings.filePath;
   appSettings.x = x;
   appSettings.y = y;
   appSettings.w = w;
@@ -207,6 +208,8 @@ function isWindowInBounds(x, y, width, height) {
 
 // レンダラープロセスからのリクエスト待ち受け設定
 ipcMain.handle('updateAppSettings', updateAppSettings);
+ipcMain.handle('savePostData', savePostData);
+ipcMain.handle('openDialog', openDialog);
 
 // アプリ設定更新
 function updateAppSettings(event, settings) {
@@ -222,6 +225,28 @@ function updateAppSettings(event, settings) {
   // アプリ設定を反映
   const encodeData = encodeURIComponent(JSON.stringify(appSettings));
   mainWindow.loadURL(`file://${__dirname}/mainWindow.html?data=${encodeData}`);
+}
+
+// ポストデータ保存
+function savePostData(event, postData) {
+  // ファイルパスが設定されていない場合
+  if(appSettings.filePath == "") return;
+
+  const filePath = path.join(appSettings.filePath, 'ToDoPost.txt');
+  fs.writeFileSync(filePath, postData, 'utf-8');
+}
+
+// ダイアログを開く
+async function openDialog(event) {
+  const result = await dialog.showOpenDialog(settingsWindow, {
+    properties: ["openDirectory"],
+    title: "フォルダを選択",
+    defaultPath: appSettings.filePath || app.getPath('home'),
+  });
+
+  if (result.canceled) return null;
+
+  return result.filePaths[0];
 }
 
 

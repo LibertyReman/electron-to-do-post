@@ -1,4 +1,5 @@
 const $topmost = document.querySelector('.js-topmost-checkbox');
+const $filePath = document.querySelector('.js-filepath');
 
 // DOM読み込み完了後
 window.addEventListener('DOMContentLoaded', () => {
@@ -7,16 +8,24 @@ window.addEventListener('DOMContentLoaded', () => {
   // Saveボタン押下時
   document.querySelector('.js-settings-save-btn').addEventListener('click', async () => {
     const settings = {
-      topmost: $topmost.checked
+      topmost: $topmost.checked,
+      filePath: $filePath.textContent
     };
 
-    await window.timer.updateAppSettings(settings);
+    await window.post.updateAppSettings(settings);
   });
 
   // CANCELボタン押下
   document.querySelector('.js-settings-cancel-btn').addEventListener('click', () => {
     window.close();
   });
+
+  // ファイルパスボタン押下
+  document.querySelector('.js-filepath-btn').addEventListener('click', async () => {
+    const ret = await window.post.openDialog();
+    $filePath.textContent = ret ?? "";
+  });
+
 })
 
 
@@ -29,6 +38,8 @@ function initializeFromQuery() {
 
   // チェックボックスの設定
   if (appSettings.topmost === true) $topmost.checked = true;
+  // ファイルパスの設定
+  if (appSettings.filePath !== "") $filePath.textContent = appSettings.filePath;
 }
 
 

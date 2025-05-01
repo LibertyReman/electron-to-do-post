@@ -65,8 +65,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 170px;
-  height: 100px;
+  width: 230px;
+  height: 120px;
   padding: 15px 15px 0;
   font-size: 15px;
 }
@@ -76,8 +76,31 @@ html {
   align-items: center;
   width: 100%;
   height: 20px;
-  padding-right: 52px;
-  margin-bottom: 13px;
+  padding-right: 110px;
+  margin-bottom: 5px;
+}
+.p-settings__filepath {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 20px;
+}
+.p-settings__filepath label {
+  margin-right: 20px;
+}
+.p-settings__filepath p {
+  width: 100px;
+  margin-right: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+.p-settings__filepath button {
+  width: 18px;
+  height: 18px;
+  color: #B9B9B9;
 }
 .p-settings__ctrl-btns {
   display: flex;

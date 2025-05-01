@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // フォーカスが外れたとき
   $postArea.onblur = () => {
     localStorage.setItem('postData', $postArea.value);
+    window.post.savePostData($postArea.value);
   };
 
 });
