@@ -16,6 +16,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// Ctrl + t, Cmd + t でトグルで画面フロート
+window.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 't') {
+    window.post.toggleTopmost();
+  }
+});
+
 // クエリパラメータによる初期化
 function initializeFromQuery() {
   // クエリパラメータの取得

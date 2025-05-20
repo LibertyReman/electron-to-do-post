@@ -210,6 +210,7 @@ function isWindowInBounds(x, y, width, height) {
 ipcMain.handle('updateAppSettings', updateAppSettings);
 ipcMain.handle('savePostData', savePostData);
 ipcMain.handle('openDialog', openDialog);
+ipcMain.handle('toggleTopmost', toggleTopmost);
 
 // アプリ設定更新
 function updateAppSettings(event, settings) {
@@ -247,6 +248,12 @@ async function openDialog(event) {
   if (result.canceled) return null;
 
   return result.filePaths[0];
+}
+
+// トグルで画面フロート
+async function toggleTopmost(event) {
+  const toggle = mainWindow.isAlwaysOnTop();
+  mainWindow.setAlwaysOnTop(!toggle);
 }
 
 

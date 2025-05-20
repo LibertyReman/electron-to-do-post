@@ -20,6 +20,11 @@ contextBridge.exposeInMainWorld('post', {
     return result;
   },
 
+  // トグルで画面フロートする関数の実行
+  async toggleTopmost() {
+    const result = await ipcRenderer.invoke('toggleTopmost');
+    return result;
+  },
 });
 
 
